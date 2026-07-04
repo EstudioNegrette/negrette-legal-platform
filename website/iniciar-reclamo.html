@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iniciar Reclamo - Estudio Negrette</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RF9Q8VP6CG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RF9Q8VP6CG');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<style>
+body{
+    font-family:Inter,sans-serif;
+    background:#08152f;
+    color:#fff;
+    margin:0;
+}
+
+.c{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.06);
+    padding:24px;
+    border-radius:20px;
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+h3{
+    margin-top:30px;
+    color:#39bdf8;
+}
+
+label{
+    display:block;
+    margin-bottom:10px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin:8px 0 16px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+}
+
+textarea{
+    resize:vertical;
+}
+
+.btn{
+    background:#39bdf8;
+    color:#fff;
+    padding:14px 22px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.hidden{
+    display:none;
+}
+
+.info{
+    margin-top:25px;
+    padding:18px;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="c">
+
+<h1>Iniciar Reclamo</h1>
+
+<div class="card">
+
+<form name="reclamos"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="empresa"
+      action="/gracias.html">
+
+<input type="hidden" name="form-name" value="reclamos">
+
+<p class="hidden">
+<label>
+Empresa
+<input name="empresa">
+</label>
+</p>
+
+<p>
+Complete los datos para que podamos analizar su caso.
+</p>
+
+<h3>Datos Personales</h3>
+
+<label>
+Nombre y Apellido *
+<input type="text" name="nombre" required>
+</label>
+
+<label>
+DNI *
+<input type="text" name="dni" required>
+</label>
+
+<label>
+Teléfono *
+<input type="tel" name="telefono" required>
+</label>
+
+<label>
+Email *
+<input type="email" name="email" required>
+</label>
+
+<h3>Datos del Siniestro</h3>
+
+<label>
+Fecha del accidente *
+<input type="date" name="fecha" required>
+</label>
+
+<label>
+Lugar del accidente *
+<input type="text" name="lugar" required>
+</label>
+
+<label>
+Breve descripción de lo ocurrido *
+<textarea name="descripcion" rows="5" required></textarea>
+</label>
+
+<h3>Datos de su Vehículo</h3>
+
+<label>
+Marca y Modelo
+<input type="text" name="vehiculo_marca_modelo">
+</label>
+
+<label>
+Dominio / Patente
+<input type="text" name="vehiculo_dominio">
+</label>
+
+<label>
+Aseguradora
+<input type="text" name="vehiculo_aseguradora">
+</label>
+
+<h3>Datos del Otro Vehículo</h3>
+
+<label>
+Marca y Modelo
+<input type="text" name="otro_marca_modelo">
+</label>
+
+<label>
+Dominio / Patente
+<input type="text" name="otro_dominio">
+</label>
+
+<label>
+Titular
+<input type="text" name="otro_titular">
+</label>
+
+<label>
+Conductor
+<input type="text" name="otro_conductor">
+</label>
+
+<label>
+Aseguradora
+<input type="text" name="otro_aseguradora">
+</label>
+
+<h3>Observaciones</h3>
+
+<label>
+Información adicional
+<textarea name="observaciones" rows="4"></textarea>
+</label>
+
+<div class="info">
+<strong>Documentación complementaria</strong><br><br>
+
+Una vez recibido el reclamo podremos solicitar documentación adicional.
+
+Si ya dispone de:
+
+<ul>
+<li>Fotografías del accidente</li>
+<li>Licencia de conducir</li>
+<li>Cédula del vehículo</li>
+<li>Certificado de cobertura</li>
+<li>Presupuesto de reparación</li>
+</ul>
+
+podrá enviarla posteriormente por WhatsApp o correo electrónico indicando el número de expediente que recibirá por email.
+</div>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAADkjzDyE97wmSk8g"></div>
+
+<label style="font-size:0.9rem;margin-top:15px;display:block;">
+<input type="checkbox" required>
+Declaro que la información suministrada es veraz y autorizo su tratamiento para la gestión del presente reclamo.
+</label>
+<p style="font-size:.9rem;margin-top:10px;">
+Al enviar este formulario acepta nuestra
+<a href="/privacidad.html" target="_blank" style="color:#39bdf8;">
+Política de Privacidad
+</a>.
+</p>
+
+<br>
+
+<button class="btn" type="submit">
+Enviar Reclamo
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>

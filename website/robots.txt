@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://estudio-negrette.netlify.app/sitemap.xml
