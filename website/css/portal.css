@@ -1,0 +1,218 @@
+/* ===========================================================
+   ESTUDIO NEGRETTE
+   Portal del Cliente
+   Sprint 4.4
+   Archivo: portal.css
+=========================================================== */
+
+body{
+    margin:0;
+    padding:0;
+    background:#eef2f7;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#222;
+}
+
+.portal{
+    max-width:1000px;
+    margin:50px auto;
+    padding:20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:14px;
+    padding:35px;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.logo h1{
+    margin:0;
+    color:#08152f;
+    font-size:34px;
+}
+
+.logo p{
+    margin-top:8px;
+    color:#666;
+}
+
+.formulario{
+    display:block;
+}
+
+.formulario label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.formulario input{
+    width:100%;
+    padding:14px;
+    border:1px solid #CCC;
+    border-radius:8px;
+    font-size:16px;
+    margin-bottom:18px;
+    box-sizing:border-box;
+}
+
+button{
+    background:#d4af37;
+    color:#08152f;
+    padding:15px 35px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:16px;
+    transition:.25s;
+}
+
+button:hover{
+    opacity:.90;
+}
+
+#cargando{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    background:#eef4ff;
+    border-radius:8px;
+    text-align:center;
+}
+
+#error{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    background:#ffeaea;
+    border-left:5px solid #d10000;
+    border-radius:8px;
+}
+
+#resultado{
+    display:none;
+    margin-top:30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+    margin-top:25px;
+}
+
+.box{
+    background:#f6f8fb;
+    padding:20px;
+    border-radius:10px;
+    transition:.25s;
+}
+
+.box:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.box h3{
+    margin-top:0;
+    color:#08152f;
+}
+
+.valor{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.estado{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:30px;
+    background:#d4af37;
+    color:#08152f;
+    font-weight:bold;
+}
+
+/* Colores por estado (Sprint 4.4) */
+
+.estado.nuevo{
+    background:#4da3ff;
+    color:#fff;
+}
+
+.estado.documentacion{
+    background:#ff9800;
+    color:#fff;
+}
+
+.estado.analisis{
+    background:#9c27b0;
+    color:#fff;
+}
+
+.estado.liquidado{
+    background:#2e7d32;
+    color:#fff;
+}
+
+.estado.cerrado{
+    background:#616161;
+    color:#fff;
+}
+
+.boton-whatsapp{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 30px;
+    background:#25D366;
+    color:#FFF;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.boton-whatsapp:hover{
+    transform:translateY(-2px);
+}
+
+.footer{
+    margin-top:50px;
+    text-align:center;
+    color:#888;
+    font-size:13px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .portal{
+        margin:20px auto;
+        padding:15px;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+    .logo h1{
+        font-size:28px;
+    }
+
+    button{
+        width:100%;
+    }
+
+    .boton-whatsapp{
+        display:block;
+        text-align:center;
+    }
+
+}

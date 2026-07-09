@@ -1,136 +1,246 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* ==========================================================
+   ESTUDIO NEGRETTE
+   Portal del Cliente
+   Sprint 4.4
+   Archivo: website/js/portal.js
+========================================================== */
 
-    const tokenInput = document.getElementById("token");
-    const resultado = document.getElementById("resultado");
-    const boton = document.getElementById("btnConsultar");
+const API = "/.netlify/functions/consulta-expediente";
 
-    // Leer el token desde la URL
-    const params = new URLSearchParams(window.location.search);
-    const tokenURL = params.get("token");
+/* ==========================================================
+   Utilidades
+========================================================== */
 
-    if (tokenInput && tokenURL) {
-        tokenInput.value = tokenURL;
-    }
+function $(id) {
+    return document.getElementById(id);
+}
 
-    // Evento del botón
-    if (boton) {
-        boton.addEventListener("click", consultarExpediente);
-    }
+function mostrarCarga() {
+    $("error").style.display = "none";
+    $("resultado").style.display = "none";
+    $("cargando").style.display = "block";
+}
 
-    // Si el token vino en la URL, consultar automáticamente
-    if (tokenURL) {
-        consultarExpediente();
-    }
+function ocultarCarga() {
+    $("cargando").style.display = "none";
+}
 
-    async function consultarExpediente() {
+function mostrarError(mensaje) {
 
-        const token = tokenInput.value.trim();
+    ocultarCarga();
 
-        if (!token) {
+    $("error").style.display = "block";
+    $("error").innerHTML = mensaje;
 
-            resultado.innerHTML = `
-                <div class="mensaje error">
-                    Debe ingresar el código de acceso.
-                </div>
-            `;
+}
 
-            return;
+function formatearFecha(fecha) {
+
+    if (!fecha) return "-";
+
+    const d = new Date(fecha);
+
+    if (isNaN(d.getTime()))
+        return fecha;
+
+    return d.toLocaleDateString(
+        "es-AR",
+        {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
         }
+    );
 
-        resultado.innerHTML = `
-            <div class="mensaje">
-                Consultando expediente...
-            </div>
-        `;
+}
 
-        try {
+function aplicarColorEstado(textoEstado) {
 
-            const response = await fetch(
-                "/.netlify/functions/consulta-expediente",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        token: token
-                    })
-                }
+    const estado = $("estado");
+
+    estado.className = "estado";
+
+    if (!textoEstado)
+        return;
+
+    const t = textoEstado.toLowerCase();
+
+    if (t.includes("nuevo")) {
+
+        estado.classList.add("nuevo");
+
+    }
+    else if (
+        t.includes("document")
+        || t.includes("pedido")
+    ) {
+
+        estado.classList.add("documentacion");
+
+    }
+    else if (
+        t.includes("análisis")
+        || t.includes("analisis")
+    ) {
+
+        estado.classList.add("analisis");
+
+    }
+    else if (
+        t.includes("liquid")
+    ) {
+
+        estado.classList.add("liquidado");
+
+    }
+    else if (
+        t.includes("cerr")
+    ) {
+
+        estado.classList.add("cerrado");
+
+    }
+
+}
+
+/* ==========================================================
+   Actualiza la pantalla
+========================================================== */
+
+function actualizarPantalla(datos) {
+
+    $("panelIngreso").style.display = "none";
+    $("resultado").style.display = "block";
+
+    $("tituloExpediente").innerHTML =
+        "Expediente Nº " + datos.expediente;
+
+    $("actor").innerHTML =
+        datos.actor || "-";
+
+    $("estado").innerHTML =
+        datos.estado || "-";
+
+    aplicarColorEstado(datos.estado);
+
+    $("fechaActualizacion").innerHTML =
+        formatearFecha(datos.fechaActualizacion);
+
+    $("proximaAccion").innerHTML =
+        formatearFecha(datos.proximaAccion);
+
+    $("documentacion").innerHTML =
+        datos.documentacion || "Sin información.";
+
+    $("documentacionPendiente").innerHTML =
+        datos.documentacionPendiente || "Ninguna.";
+
+    $("ofrecimiento").innerHTML =
+        datos.ofrecimiento || "Sin ofrecimiento.";
+
+    $("consultas").innerHTML =
+        datos.consultas || 1;
+
+    $("btnWhatsapp").href =
+        "https://wa.me/543816301433?text=" +
+        encodeURIComponent(
+            "Hola Estudio Negrette. Deseo consultar el expediente Nº " +
+            datos.expediente
+        );
+
+}
+
+/* ==========================================================
+   Consulta principal
+========================================================== */
+
+async function consultar(tokenManual = null) {
+
+    mostrarCarga();
+
+    let token = tokenManual;
+
+    if (!token) {
+
+        token = $("token").value.trim();
+
+    }
+
+    if (!token) {
+
+        mostrarError(
+            "Debe ingresar un código de acceso."
+        );
+
+        return;
+
+    }
+
+    try {
+
+        const respuesta = await fetch(
+            API,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            }
+        );
+
+        const datos = await respuesta.json();
+
+        ocultarCarga();
+
+        if (!datos.ok) {
+
+            mostrarError(
+                datos.mensaje
             );
 
-            const data = await response.json();
-
-            if (!data.ok) {
-
-                resultado.innerHTML = `
-                    <div class="mensaje error">
-                        ${data.mensaje}
-                    </div>
-                `;
-
-                return;
-            }
-
-            resultado.innerHTML = `
-
-                <div class="resultado-card">
-
-                    <h2>Expediente Nº ${data.expediente}</h2>
-
-                    <hr>
-
-                    <p>
-                        <strong>Estado:</strong>
-                        ${data.estado}
-                    </p>
-
-                    <p>
-                        <strong>Próxima acción:</strong>
-                        ${data.proximaAccion || "-"}
-                    </p>
-
-                    <p>
-                        <strong>Documentación:</strong>
-                        ${data.documentacion || "-"}
-                    </p>
-
-                    <p>
-                        <strong>Ofrecimiento:</strong>
-                        ${data.ofrecimiento || "-"}
-                    </p>
-
-                    <hr>
-
-                    <small>
-
-                        Última actualización:
-
-                        ${new Date(data.fechaConsulta).toLocaleString("es-AR")}
-
-                    </small>
-
-                </div>
-
-            `;
+            return;
 
         }
 
-        catch (error) {
-
-            console.error(error);
-
-            resultado.innerHTML = `
-
-                <div class="mensaje error">
-
-                    Error al conectar con el servidor.
-
-                </div>
-
-            `;
-
-        }
+        actualizarPantalla(datos);
 
     }
 
-});
+    catch (error) {
+
+        console.error(error);
+
+        mostrarError(
+            "No fue posible conectar con el servidor."
+        );
+
+    }
+
+}
+
+/* ==========================================================
+   Inicio automático mediante Token
+========================================================== */
+
+window.onload = function () {
+
+    const parametros =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const token =
+        parametros.get("token");
+
+    if (token) {
+
+        consultar(
+            token.trim()
+        );
+
+    }
+
+};
