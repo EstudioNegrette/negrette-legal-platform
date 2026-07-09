@@ -1,2 +1,566 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Mi Caso - Estudio Negrette</title><style>body{font-family:Arial,sans-serif;background:#08152f;color:#fff;display:flex;justify-content:center;padding:40px}.card{max-width:700px;width:100%;background:#102247;padding:30px;border-radius:12px}input{width:100%;padding:12px;margin:8px 0}button{padding:12px 20px;background:#d4af37;border:0;border-radius:6px}#res{margin-top:20px;padding:15px;border:1px solid #446}</style></head><body><div class="card"><h1>📂 Portal del Cliente</h1><p><b>LEX</b>, asistente virtual del Estudio Negrette.</p><p>Ingrese su número de expediente y DNI para consultar el estado actualizado de su caso.</p><input id="expediente" placeholder="Número de expediente"/><input id="dni" placeholder="DNI"/><button onclick="consultarExpediente()">Consultar</button><div id="res"><h3>Resultado (demostración)</h3><p>Aquí se mostrará el estado del expediente, última actualización, próxima acción, documentación pendiente y ofrecimiento una vez conectado con Make.</p></div></div><script>async function consultarExpediente(){const expediente=document.getElementById("expediente").value.trim();const dni=document.getElementById("dni").value.trim();if(!expediente||!dni){alert("Debe completar el número de expediente y el DNI.");return;}try{const respuesta=await fetch("https://hook.us2.make.com/k5kjo2nuqgflpr",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({expediente:expediente,dni:dni})});const datos=await respuesta.text();document.getElementById("res").innerHTML=datos;}catch(e){document.getElementById("res").innerHTML="<p>Error al conectar con el servidor.</p>";}}</script></body></html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portal del Cliente | Estudio Negrette</title>
+
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+<style>
+
+body{
+
+margin:0;
+padding:0;
+background:#eef2f7;
+font-family:Arial,Helvetica,sans-serif;
+color:#222;
+
+}
+
+.portal{
+
+max-width:1000px;
+margin:50px auto;
+padding:20px;
+
+}
+
+.card{
+
+background:#fff;
+border-radius:14px;
+padding:35px;
+box-shadow:0 12px 35px rgba(0,0,0,.12);
+
+}
+
+.logo{
+
+text-align:center;
+margin-bottom:30px;
+
+}
+
+.logo h1{
+
+margin:0;
+color:#08152f;
+font-size:34px;
+
+}
+
+.logo p{
+
+margin-top:8px;
+color:#666;
+
+}
+
+.formulario{
+
+display:block;
+
+}
+
+.formulario label{
+
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+
+}
+
+.formulario input{
+
+width:100%;
+padding:14px;
+border:1px solid #CCC;
+border-radius:8px;
+font-size:16px;
+margin-bottom:18px;
+box-sizing:border-box;
+
+}
+
+button{
+
+background:#d4af37;
+color:#08152f;
+padding:15px 35px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+font-size:16px;
+
+}
+
+button:hover{
+
+opacity:.90;
+
+}
+
+#cargando{
+
+display:none;
+margin-top:20px;
+padding:15px;
+background:#eef4ff;
+border-radius:8px;
+text-align:center;
+
+}
+
+#error{
+
+display:none;
+margin-top:20px;
+padding:15px;
+background:#ffeaea;
+border-left:5px solid #d10000;
+border-radius:8px;
+
+}
+
+#resultado{
+
+display:none;
+margin-top:30px;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
+margin-top:25px;
+
+}
+
+.box{
+
+background:#f6f8fb;
+padding:20px;
+border-radius:10px;
+
+}
+
+.box h3{
+
+margin-top:0;
+color:#08152f;
+
+}
+
+.valor{
+
+font-size:18px;
+font-weight:bold;
+
+}
+
+.estado{
+
+display:inline-block;
+padding:8px 16px;
+border-radius:30px;
+background:#d4af37;
+font-weight:bold;
+
+}
+
+.boton-whatsapp{
+
+display:inline-block;
+margin-top:30px;
+padding:15px 30px;
+background:#25D366;
+color:#FFF;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+
+}
+
+.footer{
+
+margin-top:50px;
+text-align:center;
+color:#888;
+font-size:13px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="portal">
+
+<div class="card">
+
+<div class="logo">
+
+<h1>ESTUDIO NEGRETTE</h1>
+
+<p>
+
+Portal Seguro de Consulta de Expedientes
+
+</p>
+
+</div>
+
+<div id="panelIngreso" class="formulario">
+
+<h2>Consultar Expediente</h2>
+
+<p>
+
+Si ingresó desde el correo recibido por el Estudio Negrette, la consulta se realizará automáticamente.
+
+Si desea realizar una consulta manual, ingrese el código de acceso recibido por correo.
+
+</p>
+
+<label>
+
+Código de Acceso
+
+</label>
+
+<input
+type="text"
+id="token"
+placeholder="Pegue aquí su código de acceso">
+
+<button
+onclick="consultar()">
+
+Consultar Expediente
+
+</button>
+
+<div id="cargando">
+
+Consultando información del expediente...
+
+</div>
+
+<div id="error"></div>
+
+</div>
+<div id="resultado">
+
+<h2 id="tituloExpediente">
+
+</h2>
+
+<p>
+
+Bienvenido/a
+
+<strong id="actor"></strong>
+
+</p>
+
+<div class="grid">
+
+<div class="box">
+
+<h3>Estado del Expediente</h3>
+
+<div id="estado" class="estado"></div>
+
+</div>
+
+<div class="box">
+
+<h3>Última actualización</h3>
+
+<div id="fechaActualizacion" class="valor"></div>
+
+</div>
+
+<div class="box">
+
+<h3>Próxima Acción</h3>
+
+<div id="proximaAccion" class="valor"></div>
+
+</div>
+
+<div class="box">
+
+<h3>Documentación recibida</h3>
+
+<div id="documentacion"></div>
+
+</div>
+
+<div class="box">
+
+<h3>Documentación pendiente</h3>
+
+<div id="documentacionPendiente"></div>
+
+</div>
+
+<div class="box">
+
+<h3>Ofrecimiento</h3>
+
+<div id="ofrecimiento" class="valor"></div>
+
+</div>
+
+<div class="box">
+
+<h3>Consultas realizadas</h3>
+
+<div id="consultas" class="valor"></div>
+
+</div>
+
+</div>
+
+<a
+id="btnWhatsapp"
+class="boton-whatsapp"
+target="_blank">
+
+Consultar por WhatsApp
+
+</a>
+
+<hr style="margin-top:40px;">
+
+<h3>
+
+Información importante
+
+</h3>
+
+<p>
+
+La información publicada en este portal posee carácter exclusivamente informativo.
+
+Las actuaciones pueden actualizarse durante el transcurso del día.
+
+Si necesita ampliar cualquier información puede comunicarse con nuestro estudio.
+
+</p>
+
+<p>
+
+Recuerde indicar siempre el número de expediente para agilizar la atención.
+
+</p>
+
+</div>
+
+<div class="footer">
+
+ESTUDIO NEGRETTE
+
+<br>
+
+Asesoramiento Jurídico Integral
+
+<br><br>
+
+WhatsApp
+
+<strong>
+
++54 381 6301433
+
+</strong>
+
+<br>
+
+Correo
+
+<strong>
+
+estudionegretteab@outlook.com
+
+</strong>
+
+<br><br>
+
+Este portal posee acceso privado mediante Token de Seguridad.
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+const API="/.netlify/functions/consulta-expediente";
+
+async function consultar(tokenManual=null){
+
+document.getElementById("error").style.display="none";
+
+document.getElementById("resultado").style.display="none";
+
+document.getElementById("cargando").style.display="block";
+
+let token=tokenManual;
+
+if(!token){
+
+token=document.getElementById("token").value.trim();
+
+}
+
+if(!token){
+
+document.getElementById("cargando").style.display="none";
+
+document.getElementById("error").style.display="block";
+
+document.getElementById("error").innerHTML=
+
+"Debe ingresar un código de acceso.";
+
+return;
+
+}
+
+try{
+
+const respuesta=await fetch(API,{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify({
+
+token:token
+
+})
+
+});
+
+const datos=await respuesta.json();
+
+document.getElementById("cargando").style.display="none";
+
+if(!datos.ok){
+
+document.getElementById("error").style.display="block";
+
+document.getElementById("error").innerHTML=
+
+datos.mensaje;
+
+return;
+
+}
+
+document.getElementById("panelIngreso").style.display="none";
+
+document.getElementById("resultado").style.display="block";
+
+document.getElementById("tituloExpediente").innerHTML=
+
+"Expediente Nº "+datos.expediente;
+
+document.getElementById("actor").innerHTML=
+
+datos.actor||"-";
+
+document.getElementById("estado").innerHTML=
+
+datos.estado||"-";
+
+document.getElementById("fechaActualizacion").innerHTML=
+
+datos.fechaActualizacion||"-";
+
+document.getElementById("proximaAccion").innerHTML=
+
+datos.proximaAccion||"-";
+
+document.getElementById("documentacion").innerHTML=
+
+datos.documentacion||"Sin información.";
+
+document.getElementById("documentacionPendiente").innerHTML=
+
+datos.documentacionPendiente||"Ninguna.";
+
+document.getElementById("ofrecimiento").innerHTML=
+
+datos.ofrecimiento||"Sin ofrecimiento.";
+
+document.getElementById("consultas").innerHTML=
+
+datos.consultas||1;
+
+document.getElementById("btnWhatsapp").href=
+
+"https://wa.me/543816301433?text="+
+
+encodeURIComponent(
+
+"Hola Estudio Negrette. Deseo consultar el expediente Nº "+datos.expediente
+
+);
+
+}
+
+catch(error){
+
+document.getElementById("cargando").style.display="none";
+
+document.getElementById("error").style.display="block";
+
+document.getElementById("error").innerHTML=
+
+"No fue posible conectar con el servidor.";
+
+console.error(error);
+
+}
+
+}
+
+window.onload=function(){
+
+const parametros=new URLSearchParams(window.location.search);
+
+const token=parametros.get("token");
+
+if(token){
+
+consultar(token.trim());
+
+}
+
+};
+
+</script>
+
+</body>
+
+</html>

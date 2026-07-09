@@ -1,0 +1,228 @@
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4f6f9;
+  color:#1f2937;
+  line-height:1.6;
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+.header{
+  background:#08152f;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.header .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+}
+
+.logo{
+  height:70px;
+}
+
+nav{
+  display:flex;
+  gap:24px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#d4af37;
+}
+
+.hero{
+  min-height:70vh;
+}
+
+.overlay{
+  background:rgba(8,21,47,.70);
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+}
+
+.hero h1{
+  color:#fff;
+  font-size:3.2rem;
+  margin-bottom:20px;
+}
+
+.hero p{
+  color:#fff;
+  max-width:650px;
+  font-size:1.2rem;
+  margin-bottom:30px;
+}
+
+.actions{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.primary{
+  background:#d4af37;
+  color:#08152f;
+}
+
+.secondary{
+  border:2px solid #fff;
+  color:#fff;
+}
+
+section{
+  padding:70px 0;
+}
+
+section h2{
+  color:#08152f;
+  margin-bottom:25px;
+  text-align:center;
+  font-size:2rem;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.cards article{
+  background:#fff;
+  border-radius:10px;
+  padding:30px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.cards h3{
+  color:#08152f;
+  margin-bottom:15px;
+}
+
+ul,ol{
+  max-width:850px;
+  margin:auto;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+footer{
+  background:#08152f;
+  color:#fff;
+  padding:35px 0;
+  text-align:center;
+}
+
+footer a{
+  color:#d4af37;
+  text-decoration:none;
+}
+/* ===========================
+   Portal del Cliente
+=========================== */
+
+.portal-card{
+
+    max-width:700px;
+
+    margin:60px auto;
+
+    background:#ffffff;
+
+    border-radius:12px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.10);
+
+}
+
+.portal-card h2{
+
+    color:#08152f;
+
+    margin-bottom:20px;
+
+}
+
+.portal-card input{
+
+    width:100%;
+
+    padding:14px;
+
+    margin:15px 0 25px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:8px;
+
+}
+
+#resultado{
+
+    margin-top:30px;
+
+}
+
+.resultado-card{
+
+    background:#f8fafc;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    border-left:5px solid #d4af37;
+
+}
+
+.mensaje{
+
+    padding:15px;
+
+    border-radius:8px;
+
+    background:#e5e7eb;
+
+}
+
+.mensaje.error{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+}

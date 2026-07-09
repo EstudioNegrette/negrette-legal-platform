@@ -13,3 +13,7 @@ node_modules/
 
 # Mac
 .DS_Store
+node_modules/
+.env
+# Local Netlify folder
+.netlify
