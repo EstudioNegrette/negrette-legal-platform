@@ -3,45 +3,115 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portal del Cliente | Estudio Negrette</title>
+<title>Portal del Cliente | Estudio Negrette</title>
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/portal.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/portal.css">
 
 </head>
 
 <body>
 
-<div class="portal">
+<a
+href="https://wa.me/543816301433?text=Hola%20Estudio%20Negrette.%20Quisiera%20realizar%20una%20consulta."
+class="whatsapp-float"
+target="_blank"
+aria-label="WhatsApp">
 
-<div class="card">
+<span class="whatsapp-icon">💬</span>
 
-<div class="logo">
+<span>WhatsApp</span>
 
-<h1>ESTUDIO NEGRETTE</h1>
+</a>
 
-<p>
+<header class="home-header">
 
-Portal Seguro de Consulta de Expedientes
+    <div class="container">
+
+        <a href="index.html" class="home-logo">
+
+            <img src="assets/logo-estudio.png" alt="Estudio Negrette">
+
+            <div class="home-logo-text">
+
+                <h1>ESTUDIO NEGRETTE</h1>
+
+                <span>Asesoramiento Jurídico Integral</span>
+
+            </div>
+
+        </a>
+
+        <nav class="home-nav">
+
+            <a href="index.html">Inicio</a>
+
+            <a href="accidentes-transito.html">Servicios</a>
+
+            <a href="mi-caso.html">Portal Cliente</a>
+
+            <a href="privacidad.html">Contacto</a>
+
+        </nav>
+
+        <a
+        href="https://wa.me/5493816301433"
+        target="_blank"
+        class="home-whatsapp">
+
+            WhatsApp
+
+        </a>
+
+    </div>
+
+</header>
+
+<section class="form-page">
+
+<div class="form-container">
+
+<div class="form-card">
+
+<span class="hero-badge">
+
+⚖ PORTAL DEL CLIENTE
+
+</span>
+
+<h1 class="form-title">
+
+Consulte el estado de su expediente
+
+</h1>
+
+<p class="form-subtitle">
+
+Este portal le permite acceder de manera segura a la información de su expediente utilizando el código privado enviado por el Estudio Negrette.
+
+Toda la información es confidencial y únicamente podrá visualizarse mediante su Token de acceso.
 
 </p>
 
-</div>
-
 <div id="panelIngreso" class="formulario">
 
-<h2>Consultar Expediente</h2>
+<h2>
+
+Consultar Expediente
+
+</h2>
 
 <p>
 
-Si ingresó desde el correo recibido por el Estudio Negrette, la consulta se realizará automáticamente.
+Si ingresó desde el correo electrónico enviado por el Estudio Negrette, la consulta se realizará automáticamente.
 
-Si desea realizar una consulta manual, ingrese el código de acceso recibido por correo.
+También puede ingresar manualmente el código recibido.
 
 </p>
 
@@ -54,7 +124,7 @@ Código de Acceso
 <input
 type="text"
 id="token"
-placeholder="Pegue aquí su código de acceso">
+placeholder="Ingrese o pegue aquí su código de acceso">
 
 <button
 onclick="consultar()">
@@ -72,13 +142,14 @@ Consultando información del expediente...
 <div id="error"></div>
 
 </div>
+
 <div id="resultado">
 
-<h2 id="tituloExpediente">
+<hr style="margin:40px 0; border:none; border-top:1px solid #E5E7EB;">
 
-</h2>
+<h2 id="tituloExpediente" class="form-title"></h2>
 
-<p>
+<p style="font-size:1.1rem; margin-bottom:35px;">
 
 Bienvenido/a
 
@@ -88,76 +159,83 @@ Bienvenido/a
 
 <div class="grid">
 
-<div class="box">
+    <div class="box">
 
-<h3>Estado del Expediente</h3>
+        <h3>Estado del Expediente</h3>
 
-<div id="estado" class="estado"></div>
+        <div id="estado" class="estado"></div>
+
+    </div>
+
+    <div class="box">
+
+        <h3>Última actualización</h3>
+
+        <div id="fechaActualizacion" class="valor"></div>
+
+    </div>
+
+    <div class="box">
+
+        <h3>Próxima Acción</h3>
+
+        <div id="proximaAccion" class="valor"></div>
+
+    </div>
+
+    <div class="box">
+
+        <h3>Documentación recibida</h3>
+
+        <div id="documentacion"></div>
+
+    </div>
+
+    <div class="box">
+
+        <h3>Documentación pendiente</h3>
+
+        <div id="documentacionPendiente"></div>
+
+    </div>
+
+    <div class="box">
+
+        <h3>Ofrecimiento</h3>
+
+        <div id="ofrecimiento" class="valor"></div>
+
+    </div>
+
+    <div class="box">
+
+        <h3>Consultas realizadas</h3>
+
+        <div id="consultas" class="valor"></div>
+
+    </div>
 
 </div>
 
-<div class="box">
-
-<h3>Última actualización</h3>
-
-<div id="fechaActualizacion" class="valor"></div>
-
-</div>
-
-<div class="box">
-
-<h3>Próxima Acción</h3>
-
-<div id="proximaAccion" class="valor"></div>
-
-</div>
-
-<div class="box">
-
-<h3>Documentación recibida</h3>
-
-<div id="documentacion"></div>
-
-</div>
-
-<div class="box">
-
-<h3>Documentación pendiente</h3>
-
-<div id="documentacionPendiente"></div>
-
-</div>
-
-<div class="box">
-
-<h3>Ofrecimiento</h3>
-
-<div id="ofrecimiento" class="valor"></div>
-
-</div>
-
-<div class="box">
-
-<h3>Consultas realizadas</h3>
-
-<div id="consultas" class="valor"></div>
-
-</div>
-
-</div>
+<div style="text-align:center; margin-top:45px;">
 
 <a
+
 id="btnWhatsapp"
+
 class="boton-whatsapp"
+
 target="_blank">
 
 Consultar por WhatsApp
 
 </a>
 
-<hr style="margin-top:40px;">
+</div>
 
-<h3>
+<div class="info" style="margin-top:45px;">
+
+<h3 style="margin-top:0; color:#08152F;">
 
 Información importante
 
@@ -165,59 +243,97 @@ Información importante
 
 <p>
 
-La información publicada en este portal posee carácter exclusivamente informativo.
+La información publicada en este portal tiene carácter exclusivamente informativo.
 
-Las actuaciones pueden actualizarse durante el transcurso del día.
-
-Si necesita ampliar cualquier información puede comunicarse con nuestro estudio.
+Los datos pueden actualizarse durante el transcurso del día conforme avance la gestión de su expediente.
 
 </p>
 
 <p>
 
-Recuerde indicar siempre el número de expediente para agilizar la atención.
+Si necesita ampliar cualquier información, nuestro equipo estará disponible para asistirlo.
+
+</p>
+
+<p>
+
+Para una atención más rápida, recuerde indicar siempre el número de expediente al comunicarse con el estudio.
 
 </p>
 
 </div>
 
-<div class="footer">
-
-ESTUDIO NEGRETTE
-
-<br>
-
-Asesoramiento Jurídico Integral
-
-<br><br>
-
-WhatsApp
-
-<strong>
-
-+54 381 6301433
-
-</strong>
-
-<br>
-
-Correo
-
-<strong>
-
-estudionegretteab@outlook.com
-
-</strong>
-
-<br><br>
-
-Este portal posee acceso privado mediante Token de Seguridad.
-
 </div>
 
 </div>
 
 </div>
+
+</section>
+
+<footer>
+
+    <div class="container">
+
+        <div style="text-align:center; padding:10px 0;">
+
+            <img
+            src="assets/logo-estudio.png"
+            alt="Estudio Negrette"
+            style="height:70px; margin-bottom:18px;">
+
+            <h3 style="margin:0; color:#FFFFFF;">
+
+                ESTUDIO NEGRETTE
+
+            </h3>
+
+            <p style="margin:12px 0;">
+
+                Asesoramiento Jurídico Integral
+
+            </p>
+
+            <p>
+
+                📍 San Miguel de Tucumán - Argentina
+
+            </p>
+
+            <p>
+
+                📱 WhatsApp:
+                <strong>+54 381 6301433</strong>
+
+            </p>
+
+            <p>
+
+                ✉️ estudionegretteab@outlook.com
+
+            </p>
+
+            <hr style="margin:30px auto; max-width:450px; opacity:.20;">
+
+            <p style="font-size:.90rem; opacity:.80;">
+
+                Portal seguro con acceso mediante Token único.
+
+                La información publicada posee carácter exclusivamente informativo.
+
+            </p>
+
+            <p style="font-size:.85rem; opacity:.65; margin-top:20px;">
+
+                © 2026 Estudio Negrette · Todos los derechos reservados.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
 
 <script src="js/portal.js"></script>
 

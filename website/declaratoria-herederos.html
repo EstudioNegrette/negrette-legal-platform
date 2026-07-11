@@ -1,101 +1,607 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Declaratoria de herederos | ESTUDIO NEGRETTE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  
-  <style>
-    :root{
-      --bg:#08152f;--bg-soft:#0d1d3d;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.1);
-      --text:#ffffff;--muted:#c8d2e3;--accent:#39bdf8;--accent-strong:#1ea7e8;--max:980px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    a{color:inherit}
-    .container{width:min(var(--max), calc(100% - 32px));margin:0 auto}
-    header{border-bottom:1px solid var(--line);background:rgba(8,21,47,.95)}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:90px}
-    .brand{display:flex;align-items:center;gap:16px;text-decoration:none}
-    .brand-logo{width:86px;height:86px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .brand-logo img{width:100%;height:100%;object-fit:contain;filter: drop-shadow(0 4px 10px rgba(0,0,0,.22));}
-    .brand-text strong{font-size:1.9rem;font-weight:800;letter-spacing:.01em}
-    .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:14px;padding:14px 24px;font-weight:700}
-    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 14px 30px rgba(57,189,248,.18)}
-    .btn-secondary{background:rgba(255,255,255,.08);border:1px solid var(--line);color:#fff}
-    .hero{padding:54px 0 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(57,189,248,.08), rgba(8,21,47,0))}
-    h1{font-size:clamp(2rem, 4vw, 3.4rem);margin:0 0 12px}
-    .lead{color:var(--muted);font-size:1.08rem;line-height:1.8;max-width:850px}
-    main{padding:40px 0 80px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:0 12px 32px rgba(0,0,0,.12)}
-    .section{margin-top:22px}
-    h2{margin:0 0 14px;font-size:1.45rem}
-    p, li{color:var(--muted);line-height:1.8}
-    ol, ul{margin:0;padding-left:22px}
-    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-    footer{padding:26px 0 40px;border-top:1px solid var(--line);color:var(--muted)}
-    @media (max-width:720px){
-      .header-inner{flex-direction:column;justify-content:center;padding:14px 0}
-      .brand-text strong{font-size:1.35rem}
-      .brand-logo{width:76px;height:76px}
-    }
-  </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Declaratoria de Herederos | Estudio Negrette
+</title>
+
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+    --bg:#08152f;
+    --bg-soft:#0d1d3d;
+
+    --card:rgba(255,255,255,.06);
+
+    --line:rgba(255,255,255,.10);
+
+    --text:#ffffff;
+
+    --muted:#c8d2e3;
+
+    --accent:#39bdf8;
+
+    --accent-strong:#1ea7e8;
+
+    --max:980px;
+
+}
+
+*{
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    margin:0;
+
+    font-family:Inter,Arial,sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+a{
+
+    color:inherit;
+
+}
+
+.container{
+
+    width:min(var(--max),calc(100% - 32px));
+
+    margin:auto;
+
+}
+
+header{
+
+    border-bottom:1px solid var(--line);
+
+    background:rgba(8,21,47,.95);
+
+}
+
+.header-inner{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    min-height:90px;
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    text-decoration:none;
+
+}
+
+.brand-logo{
+
+    width:86px;
+
+    height:86px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.brand-logo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    filter:drop-shadow(0 4px 10px rgba(0,0,0,.22));
+
+}
+
+.brand-text strong{
+
+    font-size:1.9rem;
+
+    font-weight:800;
+
+}
+
+.hero{
+
+    padding:54px 0 28px;
+
+    border-bottom:1px solid var(--line);
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        rgba(57,189,248,.08),
+
+        rgba(8,21,47,0)
+
+    );
+
+}
+
+h1{
+
+    font-size:clamp(2rem,4vw,3.4rem);
+
+    margin:0 0 12px;
+
+}
+
+.lead{
+
+    color:var(--muted);
+
+    font-size:1.08rem;
+
+    line-height:1.8;
+
+    max-width:850px;
+
+}
+
+main{
+
+    padding:40px 0 80px;
+
+}
+
+.card{
+
+    background:var(--card);
+
+    border:1px solid var(--line);
+
+    border-radius:26px;
+
+    padding:28px;
+
+    box-shadow:0 12px 32px rgba(0,0,0,.12);
+
+}
+
+.section{
+
+    margin-top:22px;
+
+}
+
+h2{
+
+    margin:0 0 14px;
+
+    font-size:1.45rem;
+
+}
+
+p,
+li{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+ol,
+ul{
+
+    margin:0;
+
+    padding-left:22px;
+
+}
+
+.actions{
+
+    display:flex;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    margin-top:28px;
+
+}
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    border-radius:14px;
+
+    padding:14px 24px;
+
+    font-weight:700;
+
+}
+
+.btn-primary{
+
+    background:var(--accent);
+
+    color:white;
+
+}
+
+.btn-secondary{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid var(--line);
+
+    color:white;
+
+}
+
+footer{
+
+    padding:26px 0 40px;
+
+    border-top:1px solid var(--line);
+
+    color:var(--muted);
+
+}
+
+@media(max-width:720px){
+
+.header-inner{
+
+flex-direction:column;
+
+justify-content:center;
+
+padding:14px 0;
+
+}
+
+.brand-text strong{
+
+font-size:1.35rem;
+
+}
+
+.brand-logo{
+
+width:76px;
+
+height:76px;
+
+}
+
+}
+
+</style>
 
 </head>
+
 <body>
+
 <header>
-  <div class="container header-inner">
-    <a class="brand" href="index.html">
-      <div class="brand-logo"><img src="assets/logo-estudio.png" alt="Logo Estudio Negrette"></div>
-      <div class="brand-text"><strong>ESTUDIO NEGRETTE</strong></div>
-    </a>
-    <a class="btn btn-primary" href="https://wa.me/5493816301433" target="_blank" rel="noreferrer">WhatsApp</a>
-  </div>
+
+<div class="container header-inner">
+
+<a
+class="brand"
+href="index.html">
+
+<div class="brand-logo">
+
+<img
+src="assets/logo-estudio.png"
+alt="Logo Estudio Negrette">
+
+</div>
+
+<div class="brand-text">
+
+<strong>
+
+ESTUDIO NEGRETTE
+
+</strong>
+
+</div>
+
+</a>
+
+</div>
+
 </header>
 
 <section class="hero">
-  <div class="container">
-    <a href="index.html" style="text-decoration:none;color:#bcecff;font-weight:600;">← Volver al inicio</a>
-    <h1>Declaratoria de herederos</h1>
-    <p class="lead">Es el paso inicial para luego poder iniciar la sucesión. Acá tenés la documentación básica y una explicación ordenada del proceso.</p>
-  </div>
+
+<div class="container">
+
+<a
+href="index.html"
+style="text-decoration:none;color:#bcecff;font-weight:600;">
+
+← Volver al inicio
+
+</a>
+
+<h1>
+
+Declaratoria de Herederos
+
+</h1>
+
+<p class="lead">
+
+Es el paso inicial para luego poder iniciar la sucesión.
+
+Acá tenés la documentación básica y una explicación ordenada del proceso.
+
+</p>
+
+</div>
+
 </section>
 
 <main>
-  <div class="container">
-    <div class="card">
-      <div class="section">
-        <h2>Documentación necesaria</h2>
-        <ol>
-          <li>Partida de defunción del causante.</li>
-          <li>Libreta de familia y acta de matrimonio, si existe.</li>
-          <li>Partidas de nacimiento de todos los supuestos herederos, hijos o padres del causante fallecido.</li>
-          <li>DNI de todos los herederos que inician la declaratoria.</li>
-        </ol>
-      </div>
 
-      <div class="section">
-        <h2>Proceso</h2>
-        <ul>
-          <li>Se realiza la presentación en el juzgado correspondiente según el domicilio del causante fallecido y/o donde se ubican los bienes.</li>
-          <li>Presentada la documentación, se deben abonar aportes, tasas y la publicación de edictos.</li>
-          <li>Luego el juez ordena oficiar al Registro de Juicios Universales (RJU) y publicar edictos en el Boletín Oficial y un diario local.</li>
-          <li>Esto se realiza para dar conocimiento a cualquier otro posible heredero del inicio del trámite sucesorio.</li>
-          <li>Transcurrido el plazo legal, el juez dictará sentencia declarando a los herederos del causante.</li>
-        </ul>
-      </div>
+<div class="container">
 
-      <div class="actions">
-        <a class="btn btn-primary" href="https://wa.me/5493816301433" target="_blank" rel="noreferrer">Iniciar consulta</a>
-        <a class="btn btn-secondary" href="index.html#servicios">Volver a servicios</a>
-      </div>
-    </div>
-  </div>
+<div class="card">
+  <div class="section">
+
+<h2>
+
+Documentación necesaria
+
+</h2>
+
+<ol>
+
+<li>
+
+Partida de defunción del causante.
+
+</li>
+
+<li>
+
+Libreta de familia y acta de matrimonio, si existe.
+
+</li>
+
+<li>
+
+Partidas de nacimiento de todos los supuestos herederos, hijos o padres del causante.
+
+</li>
+
+<li>
+
+DNI de todos los herederos que inician la declaratoria.
+
+</li>
+
+</ol>
+
+</div>
+
+<div class="section">
+
+<h2>
+
+Proceso
+
+</h2>
+
+<ul>
+
+<li>
+
+Se realiza la presentación en el juzgado correspondiente según el domicilio del causante fallecido y/o donde se ubican los bienes.
+
+</li>
+
+<li>
+
+Presentada la documentación, se deben abonar aportes, tasas judiciales y la publicación de edictos.
+
+</li>
+
+<li>
+
+El juez ordenará oficiar al Registro de Juicios Universales (RJU).
+
+</li>
+
+<li>
+
+También dispondrá la publicación de edictos en el Boletín Oficial y un diario local.
+
+</li>
+
+<li>
+
+La finalidad es permitir que cualquier otro heredero con derecho pueda presentarse dentro del plazo legal.
+
+</li>
+
+<li>
+
+Cumplidos esos pasos, el juez dictará la Declaratoria de Herederos.
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>
+
+¿Por qué realizar este trámite con nuestro estudio?
+
+</h2>
+
+<p>
+
+En el Estudio Negrette brindamos un seguimiento personalizado durante todo el proceso sucesorio.
+
+Informamos cada avance, mantenemos contacto permanente con nuestros clientes y acompañamos cada etapa hasta la obtención de la Declaratoria de Herederos.
+
+</p>
+
+</div>
+
+<div class="actions">
+
+<a
+
+class="btn btn-primary"
+
+href="iniciar-reclamo.html">
+
+Solicitar Asesoramiento
+
+</a>
+
+<a
+
+class="btn btn-secondary"
+
+href="index.html">
+
+Volver al Inicio
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 </main>
-
 <footer>
-  <div class="container">© 2026 ESTUDIO NEGRETTE · San Miguel de Tucumán, Argentina</div>
+
+<div class="container">
+
+<p>
+
+<strong>
+
+ESTUDIO NEGRETTE
+
+</strong>
+
+</p>
+
+<p>
+
+San Miguel de Tucumán - Argentina
+
+</p>
+
+<p>
+
+WhatsApp:
+<strong>
+
++54 381 6301433
+
+</strong>
+
+</p>
+
+<p>
+
+Correo:
+
+<strong>
+
+estudionegretteab@outlook.com
+
+</strong>
+
+</p>
+
+<p style="margin-top:15px;font-size:.95rem;opacity:.85;">
+
+© 2026 Estudio Negrette - Todos los derechos reservados.
+
+</p>
+
+</div>
+
 </footer>
+
+<a
+href="https://wa.me/543816301433?text=Hola%20Estudio%20Negrette.%20Quisiera%20realizar%20una%20consulta."
+class="whatsapp-float"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Consultar por WhatsApp">
+
+<span class="whatsapp-icon">
+
+💬
+
+</span>
+
+<span>
+
+WhatsApp
+
+</span>
+
+</a>
+
 </body>
+
 </html>

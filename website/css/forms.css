@@ -1,0 +1,237 @@
+/* ==========================================================
+   ESTUDIO NEGRETTE
+   FORMS.CSS
+   Sprint 4.7.2
+========================================================== */
+
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+body{
+
+    margin:0;
+
+    font-family:Inter,Arial,sans-serif;
+
+    background:#F5F7FA;
+
+    color:#1F2937;
+
+}
+
+.form-page{
+
+    padding:60px 20px;
+
+}
+
+.form-container{
+
+    max-width:950px;
+
+    margin:auto;
+
+}
+
+.form-card{
+
+    background:#FFF;
+
+    border-radius:22px;
+
+    padding:45px;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.08);
+
+}
+
+/* ==========================
+   TITULOS
+========================== */
+
+.form-title{
+
+    color:#08152F;
+
+    font-size:2.5rem;
+
+    margin-bottom:10px;
+
+}
+
+.form-subtitle{
+
+    color:#6B7280;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+.form-card h3{
+
+    color:#08152F;
+
+    margin-top:35px;
+
+    margin-bottom:20px;
+
+    padding-bottom:10px;
+
+    border-bottom:2px solid #ECEFF3;
+
+}
+
+/* ==========================
+   CAMPOS
+========================== */
+
+label{
+
+    display:block;
+
+    margin-bottom:18px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+input,
+textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:8px;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    box-sizing:border-box;
+
+}
+
+input:focus,
+textarea:focus{
+
+    outline:none;
+
+    border-color:#D4AF37;
+
+    box-shadow:0 0 0 3px rgba(212,175,55,.18);
+
+}
+
+textarea{
+
+    resize:vertical;
+
+}
+
+/* ==========================
+   PANEL INFORMATIVO
+========================== */
+
+.info{
+
+    margin-top:35px;
+
+    background:#F8FAFC;
+
+    border-left:5px solid #D4AF37;
+
+    padding:22px;
+
+    border-radius:12px;
+
+    color:#555;
+
+}
+
+.info ul{
+
+    margin-top:12px;
+
+}
+
+/* ==========================
+   TURNSTILE
+========================== */
+
+.cf-turnstile{
+
+    margin:30px 0;
+
+}
+
+/* ==========================
+   BOTÓN
+========================== */
+
+.btn{
+
+    display:inline-block;
+
+    background:#D4AF37;
+
+    color:#08152F;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:16px 36px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    .form-card{
+
+        padding:25px;
+
+    }
+
+    .form-title{
+
+        font-size:2rem;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+}

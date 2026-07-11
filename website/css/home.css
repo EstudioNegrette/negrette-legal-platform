@@ -1,0 +1,1073 @@
+/* ==========================================================
+   ESTUDIO NEGRETTE
+   HOME.CSS
+   Sprint 4.6.1
+========================================================== */
+
+/* ===========================
+   HEADER
+=========================== */
+
+.home-header{
+
+	position:sticky;
+
+	top:0;
+
+	z-index:1000;
+
+	background:#08152F;
+
+	box-shadow:0 6px 18px rgba(0,0,0,.18);
+
+}
+
+.home-header .container{
+
+	max-width:1280px;
+
+	margin:auto;
+
+	padding:18px 30px;
+
+	display:flex;
+
+	align-items:center;
+
+	justify-content:space-between;
+
+}
+
+.home-logo{
+
+	display:flex;
+
+	align-items:center;
+
+	gap:18px;
+
+	text-decoration:none;
+
+}
+
+.home-logo img{
+
+	width:70px;
+
+	height:70px;
+
+	object-fit:contain;
+
+}
+
+.home-logo-text{
+
+	display:flex;
+
+	flex-direction:column;
+
+}
+
+.home-logo-text h1{
+
+	margin:0;
+
+	color:#FFF;
+
+	font-size:2rem;
+
+	line-height:1;
+
+	letter-spacing:.5px;
+
+}
+
+.home-logo-text span{
+
+	color:#D4AF37;
+
+	font-size:.82rem;
+
+	letter-spacing:2px;
+
+	margin-top:6px;
+
+	text-transform:uppercase;
+
+}
+
+.home-nav{
+
+	display:flex;
+
+	align-items:center;
+
+	gap:38px;
+
+}
+
+.home-nav a{
+
+	color:#FFF;
+
+	text-decoration:none;
+
+	font-size:1rem;
+
+	font-weight:600;
+
+	position:relative;
+
+	transition:.30s;
+
+}
+
+.home-nav a::after{
+
+	content:"";
+
+	position:absolute;
+
+	left:0;
+
+	bottom:-8px;
+
+	width:0;
+
+	height:2px;
+
+	background:#D4AF37;
+
+	transition:.30s;
+
+}
+
+.home-nav a:hover{
+
+	color:#D4AF37;
+
+}
+
+.home-nav a:hover::after{
+
+	width:100%;
+
+}
+
+.home-whatsapp{
+
+	display:inline-flex;
+
+	align-items:center;
+
+	justify-content:center;
+
+	padding:14px 26px;
+
+	border:2px solid #D4AF37;
+
+	border-radius:12px;
+
+	color:#FFF;
+
+	text-decoration:none;
+
+	font-weight:700;
+
+	transition:.30s;
+
+}
+
+.home-whatsapp:hover{
+
+	background:#25D366;
+
+	border-color:#25D366;
+
+	transform:translateY(-2px);
+
+}
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero{
+
+    position:relative;
+
+    min-height:680px;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(8,21,47,.92) 0%,
+            rgba(8,21,47,.82) 38%,
+            rgba(8,21,47,.35) 58%,
+            rgba(8,21,47,.05) 100%
+        ),
+        url("../assets/fondo-estudio.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+}
+
+.hero-overlay{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+.hero-container{
+
+    display:flex;
+
+    align-items:center;
+
+    min-height:680px;
+
+}
+
+.hero-content{
+
+    width:44%;
+
+    color:#FFF;
+
+    padding-top:40px;
+
+}
+
+.hero-badge{
+
+    display:inline-block;
+
+    color:#D4AF37;
+
+    font-size:.95rem;
+
+    letter-spacing:2px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+}
+
+.hero-content h1{
+
+    font-size:3.5rem;
+
+    line-height:1.08;
+
+    margin-bottom:28px;
+
+    color:#FFF;
+
+    font-weight:800;
+
+}
+
+.hero-content p{
+
+    font-size:1.35rem;
+
+    line-height:1.7;
+
+    color:#E5E7EB;
+
+    margin-bottom:28px;
+
+    max-width:620px;
+
+}
+
+.hero-list{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0 0 40px;
+
+}
+
+.hero-list li{
+
+    position:relative;
+
+    padding-left:34px;
+
+    margin-bottom:16px;
+
+    color:#FFF;
+
+    font-size:1.08rem;
+
+}
+
+.hero-list li::before{
+
+    content:"✓";
+
+    position:absolute;
+
+    left:0;
+
+    color:#D4AF37;
+
+    font-weight:bold;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ==========================
+   RESPONSIVE HERO
+========================== */
+
+@media(max-width:992px){
+
+    .hero{
+
+        min-height:700px;
+
+        background-position:72% center;
+
+    }
+
+    .hero-container{
+
+        min-height:700px;
+
+    }
+
+    .hero-content{
+
+        width:100%;
+
+    }
+
+    .hero-content h1{
+
+        font-size:3rem;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero{
+
+        min-height:640px;
+
+        background-position:78% center;
+
+    }
+
+    .hero-container{
+
+        justify-content:center;
+
+        text-align:center;
+
+        min-height:640px;
+
+    }
+
+    .hero-content{
+
+        width:100%;
+
+        padding-top:0;
+
+    }
+
+    .hero-content h1{
+
+        font-size:2.4rem;
+
+    }
+
+    .hero-content p{
+
+        font-size:1.05rem;
+
+    }
+
+    .hero-list{
+
+        text-align:left;
+
+        display:inline-block;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+}
+/* ==========================================================
+   ESPECIALIDADES
+========================================================== */
+
+.especialidades{
+
+    padding:100px 0;
+
+    background:#F7F9FC;
+
+}
+
+.especialidades h2{
+
+    text-align:center;
+
+    color:#08152F;
+
+    font-size:2.8rem;
+
+    margin-bottom:18px;
+
+}
+
+.especialidades-subtitulo{
+
+    text-align:center;
+
+    color:#6B7280;
+
+    max-width:760px;
+
+    margin:0 auto 60px;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+}
+
+.especialidades-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:30px;
+
+    width:100%;
+
+}
+
+.especialidad-card{
+
+    background:#FFF;
+
+    border-radius:18px;
+
+    padding:40px 35px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    border:1px solid rgba(8,21,47,.05);
+
+}
+
+.especialidad-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 22px 45px rgba(0,0,0,.15);
+
+}
+
+.especialidad-icono{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:50%;
+
+    background:#08152F;
+
+    color:#D4AF37;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2rem;
+
+    margin-bottom:28px;
+
+}
+
+.especialidad-card h3{
+
+    color:#08152F;
+
+    margin-bottom:18px;
+
+    font-size:1.45rem;
+
+}
+
+.especialidad-card p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+}
+
+.especialidad-card a{
+
+    color:#08152F;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.30s;
+
+}
+
+.especialidad-card a:hover{
+
+    color:#D4AF37;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+    .especialidades-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/* ==========================================================
+   BENEFICIOS
+========================================================== */
+
+.beneficios{
+
+    background:#ffffff;
+
+    padding:90px 0;
+
+}
+
+.beneficios-titulo{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.beneficios-titulo span{
+
+    display:block;
+
+    color:#D4AF37;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    font-size:.90rem;
+
+    margin-bottom:12px;
+
+}
+
+.beneficios-titulo h2{
+
+    color:#08152F;
+
+    font-size:2.6rem;
+
+    margin:0;
+
+}
+
+.beneficios-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,minmax(0,1fr));
+
+    gap:28px;
+
+    width:100%;
+
+}
+
+.beneficio{
+
+    background:#F8FAFC;
+
+    border-radius:18px;
+
+    padding:35px 28px;
+
+    text-align:center;
+
+    transition:.30s;
+
+    border:1px solid rgba(8,21,47,.05);
+
+}
+
+.beneficio:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+.beneficio-icono{
+
+    width:72px;
+
+    height:72px;
+
+    margin:0 auto 22px;
+
+    border-radius:50%;
+
+    background:#08152F;
+
+    color:#D4AF37;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.8rem;
+
+}
+
+.beneficio h3{
+
+    color:#08152F;
+
+    margin-bottom:15px;
+
+    font-size:1.25rem;
+
+}
+
+.beneficio p{
+
+    color:#555;
+
+    line-height:1.7;
+
+    font-size:1rem;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+    .beneficios-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .beneficios-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/* ==========================================================
+   CONTENEDOR GENERAL
+========================================================== */
+
+.container{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:0 20px;
+
+    box-sizing:border-box;
+
+}
+/* ==========================================================
+   PROCESO DE TRABAJO
+========================================================== */
+
+.proceso{
+
+    padding:100px 0;
+
+    background:#F7F9FC;
+
+}
+
+.proceso-titulo{
+
+    text-align:center;
+
+    max-width:760px;
+
+    margin:0 auto 70px;
+
+}
+
+.proceso-titulo span{
+
+    display:block;
+
+    color:#D4AF37;
+
+    font-size:.90rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+
+}
+
+.proceso-titulo h2{
+
+    color:#08152F;
+
+    font-size:2.7rem;
+
+    margin-bottom:20px;
+
+}
+
+.proceso-titulo p{
+
+    color:#6B7280;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+
+}
+
+.proceso-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:28px;
+
+}
+
+.paso{
+
+    position:relative;
+
+    background:#FFF;
+
+    padding:40px 28px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.30s;
+
+}
+
+.paso:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+.numero{
+
+    width:70px;
+
+    height:70px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    background:#08152F;
+
+    color:#D4AF37;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.8rem;
+
+    font-weight:bold;
+
+}
+
+.paso h3{
+
+    color:#08152F;
+
+    margin-bottom:16px;
+
+    font-size:1.3rem;
+
+}
+
+.paso p{
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+/* Línea decorativa entre pasos (solo escritorio) */
+
+@media(min-width:993px){
+
+    .paso:not(:last-child)::after{
+
+        content:"";
+
+        position:absolute;
+
+        top:35px;
+
+        right:-14px;
+
+        width:28px;
+
+        height:3px;
+
+        background:#D4AF37;
+
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+    .proceso-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .proceso{
+
+        padding:70px 0;
+
+    }
+
+    .proceso-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .proceso-titulo h2{
+
+        font-size:2.1rem;
+
+    }
+
+}
+/* ==========================================================
+   PORTAL DEL CLIENTE (CTA)
+========================================================== */
+
+.portal-home{
+
+    padding:110px 0;
+
+    background:linear-gradient(135deg,#08152F 0%,#10264D 100%);
+
+}
+
+.portal-home-box{
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    color:#FFF;
+
+}
+
+.portal-home-etiqueta{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    border:1px solid rgba(212,175,55,.50);
+
+    border-radius:50px;
+
+    color:#D4AF37;
+
+    font-size:.90rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:25px;
+
+}
+
+.portal-home-box h2{
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+    line-height:1.2;
+
+    color:#FFF;
+
+}
+
+.portal-home-box p{
+
+    max-width:700px;
+
+    margin:0 auto 40px;
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    color:#D9E2F1;
+
+}
+
+.portal-home-botones{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.portal-home .btn{
+
+    min-width:230px;
+
+    text-align:center;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    .portal-home{
+
+        padding:80px 20px;
+
+    }
+
+    .portal-home-box h2{
+
+        font-size:2.2rem;
+
+    }
+
+    .portal-home-box p{
+
+        font-size:1rem;
+
+    }
+
+    .portal-home-botones{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .portal-home .btn{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+
+}
