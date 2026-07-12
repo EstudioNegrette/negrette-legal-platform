@@ -1,0 +1,196 @@
+/* ==========================================================
+   ESTUDIO NEGRETTE
+   HEADER PREMIUM
+========================================================== */
+
+.home-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:#08152F;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.12);
+
+}
+
+.home-header .container{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    min-height:82px;
+
+}
+
+.home-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    color:#FFF;
+
+    text-decoration:none;
+
+}
+
+.home-logo img{
+
+    height:56px;
+
+}
+
+.home-logo-text h1{
+
+    margin:0;
+
+    font-size:1.20rem;
+
+    color:#FFF;
+
+}
+
+.home-logo-text span{
+
+    color:#D4AF37;
+
+    font-size:.82rem;
+
+}
+
+.home-nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.home-nav a{
+
+    color:#FFF;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.home-nav a:hover{
+
+    color:#D4AF37;
+
+}
+
+.home-whatsapp{
+
+    background:#25D366;
+
+    color:#FFF;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+/* ======================
+   BOTÓN HAMBURGUESA
+====================== */
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    color:#FFF;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media(max-width:768px){
+
+    .menu-toggle{
+
+        display:block;
+
+    }
+
+    .home-nav{
+
+        position:absolute;
+
+        top:82px;
+
+        left:0;
+
+        width:100%;
+
+        background:#08152F;
+
+        display:none;
+
+        flex-direction:column;
+
+        padding:20px 0;
+
+        border-top:1px solid rgba(255,255,255,.10);
+
+    }
+
+    .home-nav.active{
+
+        display:flex;
+
+    }
+
+    .home-nav a{
+
+        width:100%;
+
+        text-align:center;
+
+        padding:15px;
+
+    }
+
+    .home-whatsapp{
+
+        display:none;
+
+    }
+
+    .home-logo img{
+
+        height:48px;
+
+    }
+
+}

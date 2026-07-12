@@ -129,3 +129,51 @@ const NegrettePlatform = {
 console.log(
   `${NegrettePlatform.estudio.nombre} - Versión ${NegrettePlatform.version}`
 );
+// ===========================================
+// Menú Responsive
+// ===========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const homeNav = document.getElementById("homeNav");
+
+    if (menuToggle && homeNav) {
+
+        // Abrir / cerrar menú
+        menuToggle.addEventListener("click", () => {
+
+            homeNav.classList.toggle("active");
+
+            menuToggle.textContent =
+                homeNav.classList.contains("active") ? "✕" : "☰";
+
+        });
+
+        // Cerrar menú al pulsar una opción
+        homeNav.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                homeNav.classList.remove("active");
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+        // Si vuelve a escritorio, dejar el menú limpio
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 768) {
+
+                homeNav.classList.remove("active");
+                menuToggle.textContent = "☰";
+
+            }
+
+        });
+
+    }
+
+});

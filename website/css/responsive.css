@@ -1,136 +1,331 @@
+/* ==========================================================
+   ESTUDIO NEGRETTE
+   RESPONSIVE.CSS
+   Versión Premium
+========================================================== */
 
-/* ==========================================
-   Responsive - Estudio Negrette
-   ========================================== */
+/* ==========================
+   TABLETS
+========================== */
 
-/* Tablets */
-@media (max-width: 992px){
-
-    .header .container{
-        flex-direction:column;
-        gap:20px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
-    }
-
-    .hero{
-        min-height:60vh;
-    }
-
-    .overlay{
-        min-height:60vh;
-        text-align:center;
-        padding:40px 0;
-    }
-
-    .hero h1{
-        font-size:2.4rem;
-    }
-
-    .hero p{
-        font-size:1.1rem;
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .actions{
-        justify-content:center;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    section{
-        padding:50px 0;
-    }
-}
-
-/* Celulares */
-@media (max-width: 768px){
-
-    .logo{
-        height:55px;
-    }
-
-    nav{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    nav a{
-        width:100%;
-        text-align:center;
-        padding:8px 0;
-    }
-
-    .hero h1{
-        font-size:2rem;
-    }
-
-    .hero p{
-        font-size:1rem;
-    }
-
-    .btn{
-        width:100%;
-        text-align:center;
-    }
+@media (max-width:992px){
 
     .container{
-        width:94%;
+        width:92%;
     }
 
-    section h2{
-        font-size:1.6rem;
+    .home-header .container{
+        flex-direction:column;
+        gap:20px;
+        padding:20px 0;
     }
 
-    .cards article{
-        padding:22px;
+    .home-nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:18px;
     }
-
-    footer{
-        font-size:.95rem;
-    }
-}
-
-/* Pantallas pequeñas */
-@media (max-width: 480px){
 
     .hero{
-        min-height:55vh;
+        min-height:auto;
     }
 
-    .overlay{
-        min-height:55vh;
+    .hero-container{
+        min-height:auto;
+        padding:80px 0;
     }
 
-    .hero h1{
-        font-size:1.7rem;
+    .hero-content{
+        width:100%;
+        text-align:center;
     }
 
-    .hero p{
-        font-size:.95rem;
+    .hero-content p{
+
+        margin-left:auto;
+        margin-right:auto;
+
     }
 
-    .header .container{
-        padding:12px 0;
+    .hero-list{
+
+        display:inline-block;
+        text-align:left;
+
     }
 
-    .actions{
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+    .especialidades-grid,
+    .beneficios-grid,
+    .proceso-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+/* ==========================
+   CELULARES
+========================== */
+
+@media (max-width:768px){
+
+    .container{
+
+        width:94%;
+
+    }
+
+    /* HEADER */
+
+    .home-header{
+
+        position:relative;
+
+    }
+
+    .home-header .container{
+
+        flex-direction:column;
+
+        gap:18px;
+
+        padding:20px 0;
+
+    }
+
+    .home-logo{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .home-logo img{
+
+        height:70px;
+
+    }
+
+    .home-logo-text h1{
+
+        font-size:1.5rem;
+
+    }
+
+    .home-nav{
+
+        flex-direction:column;
+
+        width:100%;
+
         gap:10px;
+
     }
 
-    .btn{
-        padding:12px 18px;
-        font-size:.95rem;
+    .home-nav a{
+
+        width:100%;
+
+        text-align:center;
+
+        padding:12px;
+
+        border-radius:8px;
+
+        background:rgba(255,255,255,.06);
+
     }
 
-    section{
-        padding:40px 0;
+    .home-whatsapp{
+
+        width:100%;
+
+        text-align:center;
+
     }
+
+    /* HERO */
+
+    .hero{
+
+        background-position:center;
+
+    }
+
+    .hero-container{
+
+        padding:70px 0;
+
+    }
+
+    .hero-content{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:2.3rem;
+
+        line-height:1.2;
+
+    }
+
+    .hero-content p{
+
+        font-size:1rem;
+
+    }
+
+    .hero-list{
+
+        text-align:left;
+
+        margin:30px auto;
+
+        max-width:320px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .hero-buttons .btn{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+
+    /* SECCIONES */
+
+    .especialidades,
+    .beneficios,
+    .proceso,
+    .portal-home{
+
+        padding:70px 0;
+
+    }
+
+    .especialidades h2,
+    .beneficios h2,
+    .proceso h2,
+    .portal-home h2{
+
+        font-size:2rem;
+
+    }
+
+    .especialidades-grid,
+    .beneficios-grid,
+    .proceso-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    /* FORMULARIOS */
+
+    .form-card{
+
+        padding:25px;
+
+    }
+
+    .form-title{
+
+        font-size:2rem;
+
+    }
+
+    /* PORTAL */
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp-float{
+
+        bottom:20px;
+
+        right:15px;
+
+        transform:scale(.90);
+
+    }
+
+}
+
+/* ==========================
+   MÓVILES PEQUEÑOS
+========================== */
+
+@media (max-width:480px){
+
+    .hero-content h1{
+
+        font-size:1.9rem;
+
+    }
+
+    .hero-badge{
+
+        font-size:.75rem;
+
+    }
+
+    .home-logo img{
+
+        height:60px;
+
+    }
+
+    .home-logo-text h1{
+
+        font-size:1.25rem;
+
+    }
+
+    .form-title{
+
+        font-size:1.7rem;
+
+    }
+
+    .portal-home h2{
+
+        font-size:1.8rem;
+
+    }
+
+    .whatsapp-float{
+
+        right:10px;
+
+        bottom:15px;
+
+    }
+
 }
