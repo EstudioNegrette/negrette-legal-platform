@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Resaltar opción activa del menú
+  // ==========================================================
+  // Menú activo
+  // ==========================================================
+
   const current = window.location.pathname.split("/").pop() || "index.html";
 
   document.querySelectorAll("nav a").forEach(link => {
@@ -11,7 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Scroll suave para enlaces internos
+  // ==========================================================
+  // Scroll suave
+  // ==========================================================
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     anchor.addEventListener("click", function (e) {
@@ -23,10 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         target.scrollIntoView({
-
           behavior: "smooth",
           block: "start"
-
         });
 
       }
@@ -34,6 +38,80 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   });
+
+  // ==========================================================
+  // Menú Responsive
+  // ==========================================================
+
+  const menuToggle = document.getElementById("menuToggle");
+  const homeNav = document.getElementById("homeNav");
+
+  if (menuToggle && homeNav) {
+
+    function cerrarMenu() {
+
+      homeNav.classList.remove("active");
+      menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-expanded", "false");
+
+    }
+
+    function abrirCerrarMenu(e) {
+
+      e.stopPropagation();
+
+      homeNav.classList.toggle("active");
+
+      const abierto = homeNav.classList.contains("active");
+
+menuToggle.textContent = abierto ? "✕" : "☰";
+menuToggle.setAttribute("aria-expanded", abierto);
+
+    }
+
+    menuToggle.addEventListener("click", abrirCerrarMenu);
+
+    // Cerrar al pulsar una opción
+    homeNav.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", cerrarMenu);
+
+    });
+
+    // Cerrar al tocar fuera del menú
+    document.addEventListener("click", (e) => {
+
+      if (
+        homeNav.classList.contains("active") &&
+        !homeNav.contains(e.target) &&
+        !menuToggle.contains(e.target)
+      ) {
+
+        cerrarMenu();
+
+      }
+
+    });
+
+    // Evitar que el clic dentro del menú lo cierre
+    homeNav.addEventListener("click", (e) => {
+
+      e.stopPropagation();
+
+    });
+
+    // Al volver a escritorio
+    window.addEventListener("resize", () => {
+
+      if (window.innerWidth > 768) {
+
+        cerrarMenu();
+
+      }
+
+    });
+
+  }
 
 });
 
@@ -97,7 +175,7 @@ function mostrarMensaje(texto, tipo = "info") {
 }
 
 // ===========================================
-// Configuración general de la plataforma
+// Configuración general
 // ===========================================
 
 const NegrettePlatform = {
@@ -123,57 +201,7 @@ const NegrettePlatform = {
 };
 
 // ===========================================
-// Inicialización
-// ===========================================
 
 console.log(
   `${NegrettePlatform.estudio.nombre} - Versión ${NegrettePlatform.version}`
 );
-// ===========================================
-// Menú Responsive
-// ===========================================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const menuToggle = document.getElementById("menuToggle");
-    const homeNav = document.getElementById("homeNav");
-
-    if (menuToggle && homeNav) {
-
-        // Abrir / cerrar menú
-        menuToggle.addEventListener("click", () => {
-
-            homeNav.classList.toggle("active");
-
-            menuToggle.textContent =
-                homeNav.classList.contains("active") ? "✕" : "☰";
-
-        });
-
-        // Cerrar menú al pulsar una opción
-        homeNav.querySelectorAll("a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                homeNav.classList.remove("active");
-                menuToggle.textContent = "☰";
-
-            });
-
-        });
-
-        // Si vuelve a escritorio, dejar el menú limpio
-        window.addEventListener("resize", () => {
-
-            if (window.innerWidth > 768) {
-
-                homeNav.classList.remove("active");
-                menuToggle.textContent = "☰";
-
-            }
-
-        });
-
-    }
-
-});

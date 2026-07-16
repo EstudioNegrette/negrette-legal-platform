@@ -13,20 +13,8 @@
     .container{
         width:92%;
     }
-
-    .home-header .container{
-        flex-direction:column;
-        gap:20px;
-        padding:20px 0;
-    }
-
-    .home-nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:18px;
-    }
-
-    .hero{
+    
+        .hero{
         min-height:auto;
     }
 
@@ -81,77 +69,7 @@
         width:94%;
 
     }
-
-    /* HEADER */
-
-    .home-header{
-
-        position:relative;
-
-    }
-
-    .home-header .container{
-
-        flex-direction:column;
-
-        gap:18px;
-
-        padding:20px 0;
-
-    }
-
-    .home-logo{
-
-        flex-direction:column;
-
-        text-align:center;
-
-    }
-
-    .home-logo img{
-
-        height:70px;
-
-    }
-
-    .home-logo-text h1{
-
-        font-size:1.5rem;
-
-    }
-
-    .home-nav{
-
-        flex-direction:column;
-
-        width:100%;
-
-        gap:10px;
-
-    }
-
-    .home-nav a{
-
-        width:100%;
-
-        text-align:center;
-
-        padding:12px;
-
-        border-radius:8px;
-
-        background:rgba(255,255,255,.06);
-
-    }
-
-    .home-whatsapp{
-
-        width:100%;
-
-        text-align:center;
-
-    }
-
+   
     /* HERO */
 
     .hero{
@@ -295,19 +213,7 @@
         font-size:.75rem;
 
     }
-
-    .home-logo img{
-
-        height:60px;
-
-    }
-
-    .home-logo-text h1{
-
-        font-size:1.25rem;
-
-    }
-
+   
     .form-title{
 
         font-size:1.7rem;

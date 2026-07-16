@@ -1,6 +1,6 @@
 /* ==========================================================
    ESTUDIO NEGRETTE
-   HEADER PREMIUM
+   HEADER PREMIUM v1.0
 ========================================================== */
 
 .home-header{
@@ -11,13 +11,21 @@
 
     z-index:1000;
 
+    width:100%;
+
     background:#08152F;
 
-    box-shadow:0 8px 24px rgba(0,0,0,.12);
+    box-shadow:0 8px 24px rgba(0,0,0,.15);
 
 }
 
 .home-header .container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    min-height:84px;
 
     display:flex;
 
@@ -25,9 +33,13 @@
 
     justify-content:space-between;
 
-    min-height:82px;
+    gap:25px;
 
 }
+
+/* ==========================================
+   LOGO
+========================================== */
 
 .home-logo{
 
@@ -41,11 +53,23 @@
 
     text-decoration:none;
 
+    flex-shrink:0;
+
 }
 
 .home-logo img{
 
     height:56px;
+
+    width:auto;
+
+}
+
+.home-logo-text{
+
+    display:flex;
+
+    flex-direction:column;
 
 }
 
@@ -53,9 +77,13 @@
 
     margin:0;
 
-    font-size:1.20rem;
+    font-size:1.35rem;
 
     color:#FFF;
+
+    line-height:1.1;
+
+    letter-spacing:.5px;
 
 }
 
@@ -65,7 +93,15 @@
 
     font-size:.82rem;
 
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
 }
+
+/* ==========================================
+   NAVEGACIÓN
+========================================== */
 
 .home-nav{
 
@@ -74,6 +110,8 @@
     align-items:center;
 
     gap:30px;
+
+    margin-left:auto;
 
 }
 
@@ -87,6 +125,8 @@
 
     transition:.25s;
 
+    position:relative;
+
 }
 
 .home-nav a:hover{
@@ -95,63 +135,168 @@
 
 }
 
+.home-nav a.active{
+
+    color:#D4AF37;
+
+}
+
+/* ==========================================
+   BOTÓN WHATSAPP
+========================================== */
+
 .home-whatsapp{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     background:#25D366;
 
     color:#FFF;
 
-    padding:12px 22px;
-
-    border-radius:8px;
-
     text-decoration:none;
 
     font-weight:700;
 
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    transition:.25s;
+
 }
 
-/* ======================
-   BOTÓN HAMBURGUESA
-====================== */
+.home-whatsapp:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   BOTÓN MENÚ
+========================================== */
 
 .menu-toggle{
 
     display:none;
 
-    background:none;
+    width:46px;
+
+    height:46px;
 
     border:none;
 
+    border-radius:8px;
+
+    background:transparent;
+
     color:#FFF;
 
-    font-size:2rem;
+    font-size:1.9rem;
 
     cursor:pointer;
 
+    transition:.25s;
+
 }
 
-/* ======================
-   RESPONSIVE
-====================== */
+.menu-toggle:hover{
 
-@media(max-width:768px){
+    background:rgba(255,255,255,.08);
 
-    .menu-toggle{
+}
+/* ==========================================================
+   HEADER RESPONSIVE
+========================================================== */
 
-        display:block;
+@media (max-width:768px){
+
+    /* Header */
+
+    .home-header{
+
+        position:sticky;
+
+        top:0;
+
+        z-index:9999;
 
     }
 
+    .home-header .container{
+
+        min-height:74px;
+
+        padding:0 16px;
+
+        display:grid;
+
+        grid-template-columns:1fr auto;
+
+        align-items:center;
+
+    }
+
+    /* Logo */
+
+    .home-logo{
+
+        gap:10px;
+
+    }
+
+    .home-logo img{
+
+        height:44px;
+
+    }
+
+    .home-logo-text h1{
+
+        font-size:1rem;
+
+    }
+
+    .home-logo-text span{
+
+        display:none;
+
+    }
+
+    /* WhatsApp del header desaparece */
+
+    .home-whatsapp{
+
+        display:none;
+
+    }
+
+    /* Botón hamburguesa */
+
+    .menu-toggle{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+    /* Menú */
+
     .home-nav{
 
-        position:absolute;
+        position:fixed;
 
-        top:82px;
+        top:74px;
 
         left:0;
 
-        width:100%;
+        right:0;
 
         background:#08152F;
 
@@ -159,9 +304,15 @@
 
         flex-direction:column;
 
-        padding:20px 0;
+        padding:12px;
 
-        border-top:1px solid rgba(255,255,255,.10);
+        gap:10px;
+
+        box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+        border-top:1px solid rgba(255,255,255,.08);
+
+        animation:menuFade .20s ease;
 
     }
 
@@ -175,21 +326,43 @@
 
         width:100%;
 
+        padding:14px;
+
+        border-radius:10px;
+
+        background:rgba(255,255,255,.05);
+
         text-align:center;
 
-        padding:15px;
+    }
+
+    .home-nav a:hover{
+
+        background:rgba(255,255,255,.10);
 
     }
 
-    .home-whatsapp{
+}
 
-        display:none;
+/* ==========================================================
+   ANIMACIÓN
+========================================================== */
+
+@keyframes menuFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-12px);
 
     }
 
-    .home-logo img{
+    to{
 
-        height:48px;
+        opacity:1;
+
+        transform:translateY(0);
 
     }
 
