@@ -88,6 +88,14 @@ exports.handler = async function handler(
 
             body.token;
 
+        const clientIp =
+
+            (event.headers || {})["x-nf-client-connection-ip"] ||
+
+            String((event.headers || {})["x-forwarded-for"] || "")
+                .split(",")[0]
+                .trim();
+
         if (!token) {
 
             return json(
@@ -108,7 +116,23 @@ exports.handler = async function handler(
 
             await fetch(
 
-                `${NLOS_STATUS_URL}?token=${encodeURIComponent(token)}`
+                `${NLOS_STATUS_URL}?token=${encodeURIComponent(token)}`,
+
+                {
+                    headers: {
+
+                        // IP real del cliente, para que NLOS limite las
+                        // consultas por persona y no por servidor.
+                        ...(clientIp
+                            ? { "x-nlos-client-ip": clientIp }
+                            : {}),
+
+                        ...(process.env.NLOS_INTAKE_SECRET
+                            ? { "x-nlos-intake-secret": process.env.NLOS_INTAKE_SECRET }
+                            : {})
+
+                    }
+                }
 
             );
 
