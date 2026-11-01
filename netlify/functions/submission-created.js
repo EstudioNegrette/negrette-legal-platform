@@ -24,6 +24,9 @@ exports.handler = async function (event) {
     const data = payload.data || {};
     const body = {};
     for (const c of CAMPOS) body[c] = data[c];
+    // Aceptacion de la Politica de Privacidad (checkbox del formulario) y su version.
+    body.aceptaPrivacidad = data.acepta_privacidad;
+    body.politicaVersion = data.politica_version;
 
     const headers = { "Content-Type": "application/json" };
     if (process.env.NLOS_INTAKE_SECRET) {
