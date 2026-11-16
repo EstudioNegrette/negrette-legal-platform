@@ -235,3 +235,15 @@ textarea{
     }
 
 }
+
+
+/* ==========================
+   CAMPO ANTI-SPAM (honeypot)
+   Tiene que estar oculto para las personas.
+========================== */
+
+.hidden{
+
+    display:none !important;
+
+}

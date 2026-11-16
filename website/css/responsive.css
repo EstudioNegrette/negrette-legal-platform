@@ -235,3 +235,64 @@
     }
 
 }
+
+
+/* ==========================================================
+   INICIO EN CELULAR: IMAGEN DE FONDO MAS CHICA
+   En pantallas angostas "cover" ampliaba la imagen hasta
+   cortarla. Ahora se ve entera, mas chica, abajo del texto.
+========================================================== */
+
+@media (max-width:768px){
+
+    .hero{
+
+        background-color:#08152F;
+
+        background-image:
+
+            linear-gradient(
+
+                180deg,
+
+                rgba(8,21,47,.97) 0%,
+
+                rgba(8,21,47,.90) 55%,
+
+                rgba(8,21,47,.35) 100%
+
+            ),
+
+            url("../assets/fondo-estudio.png");
+
+        background-repeat:no-repeat;
+
+        background-size:100% 100%, 120% auto;
+
+        background-position:center, 72% 100%;
+
+    }
+
+    .hero-container{
+
+        padding:70px 0 230px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .hero{
+
+        background-size:100% 100%, 135% auto;
+
+    }
+
+    .hero-container{
+
+        padding:60px 0 200px;
+
+    }
+
+}
