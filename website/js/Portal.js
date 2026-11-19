@@ -104,6 +104,49 @@ function aplicarColorEstado(textoEstado) {
 }
 
 /* ==========================================================
+   Historial de estados (con fecha)
+========================================================== */
+
+function mostrarHistorial(historial) {
+
+    const caja = $("boxHistorial");
+    const lista = $("historial");
+
+    if (!caja || !lista) return;
+
+    lista.innerHTML = "";
+
+    if (!Array.isArray(historial) || historial.length === 0) {
+        caja.style.display = "none";
+        return;
+    }
+
+    historial.forEach(function (evento) {
+
+        const li = document.createElement("li");
+
+        li.style.cssText =
+            "display:flex; gap:16px; padding:9px 0; " +
+            "border-bottom:1px solid #E5E7EB;";
+
+        const fecha = document.createElement("span");
+        fecha.style.cssText = "min-width:96px; color:#475569; font-weight:600;";
+        fecha.textContent = formatearFecha(evento.fecha);
+
+        const estado = document.createElement("span");
+        estado.textContent = evento.estado || "";
+
+        li.appendChild(fecha);
+        li.appendChild(estado);
+        lista.appendChild(li);
+
+    });
+
+    caja.style.display = "block";
+
+}
+
+/* ==========================================================
    Actualiza la pantalla
 ========================================================== */
 
@@ -126,9 +169,6 @@ function actualizarPantalla(datos) {
     $("fechaActualizacion").innerHTML =
         formatearFecha(datos.fechaActualizacion);
 
-    $("proximaAccion").innerHTML =
-        formatearFecha(datos.proximaAccion);
-
     $("documentacion").innerHTML =
         datos.documentacion || "Sin información.";
 
@@ -138,8 +178,7 @@ function actualizarPantalla(datos) {
     $("ofrecimiento").innerHTML =
         datos.ofrecimiento || "Sin ofrecimiento.";
 
-    $("consultas").innerHTML =
-        datos.consultas || 1;
+    mostrarHistorial(datos.historial);
 
     $("btnWhatsapp").href =
         "https://wa.me/543816301433?text=" +
