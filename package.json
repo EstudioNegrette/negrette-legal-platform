@@ -23,8 +23,6 @@
   },
   "homepage": "https://github.com/EstudioNegrette/negrette-legal-platform#readme",
   "dependencies": {
-    "airtable": "^0.12.2",
     "dotenv": "^17.4.2"
-  },
-  "devDependencies": {}
+  }
 }
